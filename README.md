@@ -2,7 +2,7 @@
 
 LangChain Python tools for **Ask Japan** public data and **MARU Japan Hands** human services in Japan, operated by iHouse Co., Ltd.
 
-Release candidate 0.1.0. This local candidate has not been published to PyPI.
+Version 0.1.0 is published on PyPI.
 Python 3.11+; validated locally on Python 3.12. No LLM subscription is needed to run the direct examples.
 
 ## Overview
@@ -21,13 +21,7 @@ Endpoints are taken from the Official MCP Registry, not inferred:
 
 ## Installation
 
-Before publication, install the provided wheel:
-
-```bash
-python -m pip install ./dist/langchain_askjapan-0.1.0-py3-none-any.whl
-```
-
-After publication, the registry installation command will be:
+Install the published package from PyPI:
 
 ```bash
 python -m pip install langchain-askjapan
@@ -167,8 +161,8 @@ Offline tests use a real local stdio MCP server and captured tool definitions. O
 
 ## 日本語
 
-Ask Japan の公開データ検索と MARU Japan Hands を LangChain から使う Python パッケージです。ツール名・説明・引数は実際の MCP サーバーから取得します。現在の公開データ検索６種類とサービス一覧の参照は無料です。有料データは正式な代理条件・市場価格と少額の手数料、人的代行は既存料金表に従います。手数料の具体額は未定です。依頼・注文・ウォレット操作には別途明示的な承認が必要です。本版はローカルの公開準備版です。
+Ask Japan の公開データ検索と MARU Japan Hands を LangChain から使う Python パッケージです。ツール名・説明・引数は実際の MCP サーバーから取得します。現在の公開データ検索６種類とサービス一覧の参照は無料です。有料データは正式な代理条件・市場価格と少額の手数料、人的代行は既存料金表に従います。手数料の具体額は未定です。依頼・注文・ウォレット操作には別途明示的な承認が必要です。バージョン0.1.0はPyPIで公開済みです。
 
 ## 中文
 
-这是供 LangChain 使用的 Ask Japan／MARU Python 工具包，名称、说明和参数直接取自线上 MCP。当前六个公开数据查询和服务目录查询免费；不能概括成所有数据免费。收费数据按市场价、正式代理并加少量手续费，手续费具体金额尚未定；真人代办按现有价格另算。委托、下单、钱包操作必须另获明确授权。当前是本地待发布版本。
+这是供 LangChain 使用的 Ask Japan／MARU Python 工具包，名称、说明和参数直接取自线上 MCP。当前六个公开数据查询和服务目录查询免费；不能概括成所有数据免费。收费数据按市场价、正式代理并加少量手续费，手续费具体金额尚未定；真人代办按现有价格另算。委托、下单、钱包操作必须另获明确授权。0.1.0版已在PyPI发布。
