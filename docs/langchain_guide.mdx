@@ -1,0 +1,73 @@
+---
+title: "Ask Japan and MARU integration"
+description: "Use Japanese public-data and MARU Japan Hands MCP tools with LangChain Python."
+---
+
+Local draft adapted from the official tools/toolkits template. This package is Python-only; JavaScript/TypeScript support is not provided. This is not a hosted-guide submission or a claim of featured status.
+
+## Overview
+
+### Details
+
+| Class | Package | Serializable | JS support |
+| --- | --- | --- | --- |
+| AskJapanToolkit | langchain-askjapan | No | No |
+| MaruJapanHandsToolkit | langchain-askjapan | No | No |
+
+### Features
+
+Live MCP schemas and descriptions, individually importable tools, synchronous and asynchronous calls, and preserved ToolMessage content/artifacts. Ask Japan defaults to six public-data tools; MARU exposes 11 tools. Explicitly select approved tools before attaching them to an agent.
+
+## Setup
+
+### Credentials
+
+The three read-only examples require no account or API key. Human-service requests and wallet operations have separate authorization and payment steps. External tracing is optional and disabled during verification.
+
+### Installation
+
+Before publication, install the supplied wheel. After publication:
+
+```bash
+pip install langchain-askjapan
+```
+
+## Instantiation
+
+```python
+from langchain_askjapan.ask_japan import lookup_postcode
+
+tool = lookup_postcode()
+```
+
+## Invocation
+
+### Directly
+
+```python
+tool.invoke({"postcode": "530-0001"})
+```
+
+### As a ToolCall
+
+```python
+tool.invoke({"type": "tool_call", "id": "postcode-1", "name": tool.name,
+             "args": {"postcode": "530-0001"}})
+```
+
+### Within an agent
+
+Illustrative only: requires a separately configured model and the `langchain` package; provider charges may apply. No model calls were made during validation.
+
+```python
+from langchain.agents import create_agent
+# agent = create_agent(model=your_configured_model, tools=[tool])
+```
+
+## Pricing and tool selection
+
+The six listed public-data tools use free public sources. Paid data, where offered, follows formal agency arrangements at market price plus a small handling fee whose amount is not yet set. MARU services are separately priced under the existing schedule; query `list_services` and obtain explicit authorization before creating any request, order or wallet operation.
+
+## API reference
+
+The package README provides the full API reference, complete tool inventory, three runnable examples, timeout/error handling and development commands. This local guide mirrors the official template sections; the PyPI README can serve as the public guide once the package is published.

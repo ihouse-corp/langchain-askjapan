@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-askjapan"
+version = "0.1.0"
+description = "LangChain tools for Ask Japan public data and MARU Japan Hands MCP services"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "iHouse Co., Ltd."}]
+keywords = ["langchain", "mcp", "japan", "askjapan", "maru"]
+classifiers = ["Development Status :: 4 - Beta", "Programming Language :: Python :: 3", "Operating System :: OS Independent"]
+dependencies = ["langchain-core>=1.8.1,<2", "langchain-mcp-adapters>=0.3.2,<0.4"]
+
+[project.optional-dependencies]
+test = ["langchain-tests==1.1.9", "pytest>=9,<10", "pytest-asyncio>=1,<2"]
+
+[project.urls]
+Homepage = "https://askjapan.senpinai.com/"
+"Service documentation" = "https://github.com/ihouse-corp/ask-japan-mcp"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/langchain_askjapan"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/examples", "/docs", "/README.md", "/LICENSE", "/pyproject.toml"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests/unit_tests"]
+markers = ["live: explicitly enabled free read-only production calls"]
